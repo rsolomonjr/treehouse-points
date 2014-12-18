@@ -4,7 +4,6 @@
 var http = require("http");
 var printer = require("./printer");
 
-
 function getProfile(username, topic) {
 	var request = http.get("http://teamtreehouse.com/" + username + ".json", function(response){
 		// console.log(response.statusCode);
