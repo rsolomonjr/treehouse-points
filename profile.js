@@ -18,7 +18,12 @@ function getProfile(username, topic) {
 					// Parse the data
 					var profile = JSON.parse(body);
 					// Print the data
-					printer.message(profile.name, profile.badges.length, profile.points[topic], topic);
+					if (typeof profile.points[topic] !== 'undefined') {
+						printer.message(false, profile.name, profile.badges.length, profile.points[topic], topic);
+					} else {
+						printer.message(true, profile.name, profile.badges.length, profile.points[topic], topic);
+					}
+					
 				} catch(error) {
 					// Parse Error
 					printer.error(error);
